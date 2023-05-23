@@ -1,0 +1,331 @@
+/* font-size css */
+
+.font-16 {
+    font-size: 16px;
+  }
+  
+  .font-20 {
+    font-size: 20px;
+  }
+  
+  .font-32 {
+    font-size: 32px;
+  }
+  
+  .font-18 {
+    font-size: 18px;
+  }
+  
+  .font-24 {
+    font-size: 24px;
+  }
+  
+  .font-28 {
+    font-size: 28px;
+  }
+  
+  .font-15 {
+    font-size: 15px;
+  }
+  
+  .font-14 {
+    font-size: 14px;
+  }
+  
+  /* END */
+  
+  /* Login page css */
+  
+  ::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #4e698f;
+  }
+  
+  .login-page-main {
+    background: url("../assets/images/Login-bg-img.png") no-repeat,
+      linear-gradient(113.86deg, #1b3558 0.89%, #0f192c 100%);
+    min-height: 100vh;
+    display: block;
+    width: 100%;
+    background-size: 50% 100%;
+    background-position: top left;
+  }
+  
+  .login-section {
+    width: 50%;
+    margin-left: auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .login-form-section {
+    width: 100%;
+    min-width: 475px;
+    max-width: 475px;
+    display: block;
+    padding: 0px 30px;
+  }
+  
+  .wel-txt {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+  }
+  
+  .wel-sub-txt {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .reg-link-sec p {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: #a6c2e9;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  .reg-link-sec p a {
+    color: #fff !important;
+    font-weight: 600;
+    margin-left: 4px;
+    text-transform: capitalize;
+  }
+  
+  .social-media-section {
+    margin: 40px 0px;
+    width: 100%;
+    display: block;
+  }
+  
+  .social-media-section h6 {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: #a6c2e9;
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0px;
+    /* gap: 24px; */
+  }
+  
+  .social-icon a {
+    width: 50px;
+    height: 50px;
+    margin: 0px 12px;
+  }
+  
+  .social-icon span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url("../assets/images/Icons-login.png") no-repeat;
+  }
+  
+  span.google-icon {
+    background-position: -74px 0px;
+  }
+  
+  span.ios-icon {
+    background-position: -148px 0px;
+  }
+  
+  span.insta-icon {
+    background-position: -222px 0px;
+  }
+  
+  .or-section {
+    margin-top: 40px;
+    width: 100%;
+    display: block;
+  }
+  
+  .or-section h6 {
+    margin-bottom: 0px;
+    position: relative;
+  }
+  
+  .or-section h6 span {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    border: 1px solid #a6c2e9;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 50px;
+    display: block;
+    z-index: 1;
+    background: #152444;
+    position: relative;
+  }
+  
+  .or-section h6::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #a6c2e9;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .form-input-section {
+    margin-top: 40px;
+    display: block;
+    width: 100%;
+  }
+  
+  .form-input-section form label {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: #a6c2e9;
+    margin-bottom: 10px;
+  }
+  
+  .email-section {
+    margin-bottom: 40px;
+  }
+  
+  .form-input-section input {
+    background: #081a34;
+    border: 1px solid #a6c2e9 !important;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    padding: 8px 50px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #ffffff;
+    position: relative;
+    height: auto;
+  }
+  
+  .email-section input[type="email"]::before {
+    content: "ssss";
+    background: url("../assets/images/Email.svg");
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .psd-eye {
+    position: relative;
+  }
+  
+  .psd-eye span.eye-icon {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    border: none;
+    display: flex;
+    background: none;
+  }
+  
+  #pw-open {
+    display: none;
+  }
+  
+  .password-section a {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: #fff !important;
+    text-align: right;
+    width: 100%;
+    display: block;
+    margin-top: 23px;
+  }
+  
+  .email-icon {
+    position: relative;
+  }
+  
+  .email-icon span {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    display: flex;
+    left: 13px;
+  }
+  
+  .psd-eye span.psd-icon {
+    position: absolute;
+    z-index: 1;
+    top: 9px;
+    left: 13px;
+    display: flex;
+  }
+  
+  .login-btn {
+    margin-top: 40px;
+  }
+  
+  .login-btn button {
+    width: 100%;
+    background: #c2285c;
+    border-radius: 50px;
+    padding: 8px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  
+  .login-section::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(90deg, #000000, transparent);
+    position: absolute;
+    left: 0;
+    opacity: 0.3;
+  }
+  
+  .fg-psd-link {
+    position: absolute;
+    width: auto;
+    bottom: 0;
+    margin-bottom: 50px;
+    display: block;
+    left: 0;
+    right: 0;
+  }
+  
+  .mbl-logo-sec {
+    display: none;
+  }
+  
