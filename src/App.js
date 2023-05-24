@@ -6,6 +6,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 // import RegisterPage from "./pages1/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgetPassword from "./pages/ForgetPasswordPage";
+import Verification from "./pages/verification";
+
 // import DashboardPage from "./pages1/Dashboard";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -17,6 +19,7 @@ function App() {
                 {/* <Route path="/register" element={<RegisterPage/>} /> */}
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/forget" element={<ForgetPassword/>} />
+                <Route path="/Verification" element={<Verification/>} />
 
                 {/* <Route path="/dashboard" element={<DashboardPage/>} /> */}
                 <Route path="/" element={<h1>Home</h1>} />
