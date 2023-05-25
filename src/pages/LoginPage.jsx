@@ -1,29 +1,12 @@
-// import './LoginPage1.css';
-
-import React from 'react'
+import {React,useState} from 'react'
 import { Link,Navigate } from 'react-router-dom';
 import email from '../assets/images/Email.svg';
 import logo from '../assets/images/mbl-Logo.png';
 import password from '../assets/images/password.svg';
 import eyeHide from '../assets/images/eye-hide.svg';
 import eyeOpen from '../assets/images/eye-open.svg';
-import { useState } from 'react';
-
 
 const LoginPage = () => {
-    // const [passwordType, setPasswordType] = useState("password");
-    // const [passwordInput, setPasswordInput] = useState("");
-    // const handlePasswordChange = (evnt) => {
-    //     setPasswordInput(evnt.target.value);
-    // }
-
-    // const togglePassword = () => {
-    //     if (passwordType === "password") {
-    //         setPasswordType("text")
-    //         return;
-    //     }
-    //     setPasswordType("password")
-    // }
     const initialStateErrors = {
         email:{required:false},
         password:{required:false},
@@ -36,10 +19,17 @@ const LoginPage = () => {
     const [inputs,setInputs] = useState({
         email:"",
         password:"",
+        showPassword: false,
     })
+    //eye button action
+    const handlePasswordChange = () => {
+        setInputs({ ...inputs, showPassword: !inputs.showPassword });
+    }
+    //
     const handleInput = (event)=>{
         setInputs({...inputs,[event.target.name]:event.target.value})
     }
+
     const handleSubmit = (event)=>{
         console.log(inputs);
         event.preventDefault();
@@ -54,12 +44,30 @@ const LoginPage = () => {
             errors.password.required =true;
             hasError=true;
         }
+       
         if (!hasError) {
-        return <Navigate to="/homepage" />
+            // setLoading(true)
+            // //sending login api request
+            // LoginApi(inputs).then((response)=>{
+            //    storeUserData(response.data.idToken);
+            // }).catch((err)=>{
+            //    if (err.code="ERR_BAD_REQUEST") {
+            //         setErrors({...errors,custom_error:"Invalid Credentials."})
+            //    }
+
+            // }).finally(()=>{
+            //     setLoading(false)
+            // })
         }
         setErrors({...errors});
 
     }
+
+    // if (isAuthenticated()) {
+    //     //redirect user to dashboard
+    //     return <Navigate to="/dashboard" />
+    // }
+    // }
     return (
         <>
             <div className="login-page-main">
@@ -80,7 +88,7 @@ const LoginPage = () => {
                                         <span>
                                             <img src={email} alt="" />
                                         </span>
-                                        <input className="font-16" type="email" onChange={handleInput} placeholder="Enter Address" />
+                                        <input className="font-16" type="email" onChange={handleInput} name="email" placeholder="Enter Address" />
                                     </div>
                                     { errors.email.required?
                                     (<span className="text-danger" >
@@ -92,13 +100,13 @@ const LoginPage = () => {
                                     <label htmlFor="" className="font-16">Password*</label>
                                     <div className="psd-eye">
                                         <span className="psd-icon"> <img src={password} alt="" /> </span>
-                                        <input className="font-16" type="password" onChange={handleInput} placeholder="Enter Password" />
-                                        {/* <span className="eye-icon" onClick={togglePassword}>
-                                            {passwordType === "password" ? <img id="pw-close" src={eyeHide} alt="" /> :
-                                                <img id="pw-open" src={eyeOpen} alt="" />}
-                                        </span> */}
+                                        <input className="font-16" type={inputs.showPassword ? "text" : "password"} onChange={handleInput} id="password" name="password" placeholder="Enter Password" />
+                                        <span className="eye-icon" onClick={handlePasswordChange}>
+                                            {inputs.showPassword  ? <img id="pw-open" src={eyeOpen} alt="" />:
+                                            <img id="pw-close" src={eyeHide} alt="" />  }
+                                        </span>
                                     </div>
-                                    { errors.email.required?
+                                    { errors.password.required?
                                     (<span className="text-danger" >
                                         Password is required.
                                     </span>):null
@@ -106,7 +114,7 @@ const LoginPage = () => {
                                     <Link to="/forget">Forgot Password?</Link>
                                 </div>
                                 <div className="login-btn">
-                                    <button type="submit" className="font-16"><Link to="/homepage">Login Now</Link></button>
+                                    <button type="submit" className="font-16">Login Now</button>
                                 </div>
                             </form>
                         </div>
