@@ -1,8 +1,9 @@
 // import './LoginPage1.css';
 
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link,Navigate } from 'react-router-dom';
 import email from '../assets/images/Email.svg';
+import logo from '../assets/images/mbl-Logo.png';
 import password from '../assets/images/password.svg';
 import eyeHide from '../assets/images/eye-hide.svg';
 import eyeOpen from '../assets/images/eye-open.svg';
@@ -10,18 +11,54 @@ import { useState } from 'react';
 
 
 const LoginPage = () => {
-    const [passwordType, setPasswordType] = useState("password");
-    const [passwordInput, setPasswordInput] = useState("");
-    const handlePasswordChange = (evnt) => {
-        setPasswordInput(evnt.target.value);
-    }
+    // const [passwordType, setPasswordType] = useState("password");
+    // const [passwordInput, setPasswordInput] = useState("");
+    // const handlePasswordChange = (evnt) => {
+    //     setPasswordInput(evnt.target.value);
+    // }
 
-    const togglePassword = () => {
-        if (passwordType === "password") {
-            setPasswordType("text")
-            return;
+    // const togglePassword = () => {
+    //     if (passwordType === "password") {
+    //         setPasswordType("text")
+    //         return;
+    //     }
+    //     setPasswordType("password")
+    // }
+    const initialStateErrors = {
+        email:{required:false},
+        password:{required:false},
+        custom_error:null
+    };
+    const [errors,setErrors] = useState(initialStateErrors);
+    
+    const [loading,setLoading]  =  useState(false);
+
+    const [inputs,setInputs] = useState({
+        email:"",
+        password:"",
+    })
+    const handleInput = (event)=>{
+        setInputs({...inputs,[event.target.name]:event.target.value})
+    }
+    const handleSubmit = (event)=>{
+        console.log(inputs);
+        event.preventDefault();
+        let errors =initialStateErrors; 
+        let hasError = false; 
+        
+        if (inputs.email == "") {
+            errors.email.required =true;
+            hasError=true;
         }
-        setPasswordType("password")
+        if (inputs.password == "") {
+            errors.password.required =true;
+            hasError=true;
+        }
+        if (!hasError) {
+        return <Navigate to="/homepage" />
+        }
+        setErrors({...errors});
+
     }
     return (
         <>
@@ -29,34 +66,43 @@ const LoginPage = () => {
                 <div className="login-section">
                     <div className="login-form-section">
                         <div className="mbl-logo-sec">
-                            <img src={require('../assets/images/mbl-Logo.png')} alt="logo" className="src" />
+                            <img src={logo} alt="logo" className="src" />
                         </div>
                         <div className="form-title">
                             <h1 className="font-32 wel-txt">Welcome Back</h1>
                             <h6 className="font-20 wel-sub-txt">Login to continue using your account</h6>
                         </div>
                         <div className="form-input-section">
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="email-section">
                                     <label htmlFor="" className="font-16">Email Address*</label>
                                     <div className="email-icon">
                                         <span>
                                             <img src={email} alt="" />
                                         </span>
-                                        <input className="font-16" type="email" placeholder="Enter Address" />
+                                        <input className="font-16" type="email" onChange={handleInput} placeholder="Enter Address" />
                                     </div>
+                                    { errors.email.required?
+                                    (<span className="text-danger" >
+                                        Email is required.
+                                    </span>):null
+                                    }
                                 </div>
                                 <div className="password-section">
                                     <label htmlFor="" className="font-16">Password*</label>
                                     <div className="psd-eye">
                                         <span className="psd-icon"> <img src={password} alt="" /> </span>
-                                        <input className="font-16" type={passwordType} value={passwordInput} onChange={handlePasswordChange} placeholder="Enter Password" />
-                                        <span className="eye-icon" onClick={togglePassword}>
-
+                                        <input className="font-16" type="password" onChange={handleInput} placeholder="Enter Password" />
+                                        {/* <span className="eye-icon" onClick={togglePassword}>
                                             {passwordType === "password" ? <img id="pw-close" src={eyeHide} alt="" /> :
                                                 <img id="pw-open" src={eyeOpen} alt="" />}
-                                        </span>
+                                        </span> */}
                                     </div>
+                                    { errors.email.required?
+                                    (<span className="text-danger" >
+                                        Password is required.
+                                    </span>):null
+                                    }
                                     <Link to="/forget">Forgot Password?</Link>
                                 </div>
                                 <div className="login-btn">
