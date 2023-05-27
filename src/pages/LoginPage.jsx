@@ -5,6 +5,10 @@ import logo from '../assets/images/mbl-Logo.png';
 import password from '../assets/images/password.svg';
 import eyeHide from '../assets/images/eye-hide.svg';
 import eyeOpen from '../assets/images/eye-open.svg';
+import validator from 'validator';
+import { LoginApi } from '../services/Api';
+import {storeUserData } from '../services/Storage';
+import { isAuthenticated } from '../services/Auth';
 
 const LoginPage = () => {
     const initialStateErrors = {
@@ -31,43 +35,55 @@ const LoginPage = () => {
     }
 
     const handleSubmit = (event)=>{
-        console.log(inputs);
         event.preventDefault();
         let errors =initialStateErrors; 
         let hasError = false; 
+        console.log(inputs);
         
         if (inputs.email == "") {
             errors.email.required =true;
             hasError=true;
-        }
+        } 
         if (inputs.password == "") {
             errors.password.required =true;
             hasError=true;
         }
+
+        //Password Validation
+        // if (!validator.isStrongPassword(inputs.password, {
+        //     minLength: 8, minLowercase: 1,
+        //     minUppercase: 1, minNumbers: 1, minSymbols: 1
+        //   })) {
+        //     errors.password.required='Password Must contain 8 characters At least one Uppercase, Lowercase, One digit, one Special Characters,'
+        //     setErrors(errors.password.required)
+        //     hasError=true;
+        //   }
        
         if (!hasError) {
-            // setLoading(true)
-            // //sending login api request
-            // LoginApi(inputs).then((response)=>{
-            //    storeUserData(response.data.idToken);
-            // }).catch((err)=>{
-            //    if (err.code="ERR_BAD_REQUEST") {
-            //         setErrors({...errors,custom_error:"Invalid Credentials."})
-            //    }
+            setLoading(true)
+            //sending login api request
+            LoginApi(inputs).then((response)=>{
+                if (response.data.status === 200) {
+                        storeUserData(response.data.idToken);                   
+                }else{
+                    setErrors({...errors,custom_error:response.data.message})
+                }
+            }).catch((err)=>{
+                    setErrors({...errors,custom_error:err})
 
-            // }).finally(()=>{
-            //     setLoading(false)
-            // })
+            }).finally(()=>{
+                setLoading(false)
+            })
         }
         setErrors({...errors});
 
     }
 
-    // if (isAuthenticated()) {
-    //     //redirect user to dashboard
-    //     return <Navigate to="/dashboard" />
-    // }
-    // }
+    if (isAuthenticated()) {
+        //redirect user to dashboard
+        return <Navigate to="/dashboard" />
+    }
+    
     return (
         <>
             <div className="login-page-main">
@@ -105,12 +121,27 @@ const LoginPage = () => {
                                             {inputs.showPassword  ? <img id="pw-open" src={eyeOpen} alt="" />:
                                             <img id="pw-close" src={eyeHide} alt="" />  }
                                         </span>
+                                        { errors.password.required ?
+                                            (<span className="text-danger" >
+                                                Password is required.
+                                            </span>):null
+                                            }
+                                    </div><br/>                                  
+                                    <div className="form-group">
+                                        {loading ?
+                                        (<div  className="text-center">
+                                            <div className="spinner-border text-primary " role="status">
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+                                        </div>):null
+                                        }
+                                        <span className="text-danger" >
+                                        { errors.custom_error?
+                                        (<p style={{color:'red'}}>{errors.custom_error}</p>)
+                                        :null
+                                        }
+                                        </span>
                                     </div>
-                                    { errors.password.required?
-                                    (<span className="text-danger" >
-                                        Password is required.
-                                    </span>):null
-                                    }
                                     <Link to="/forget">Forgot Password?</Link>
                                 </div>
                                 <div className="login-btn">

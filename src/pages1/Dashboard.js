@@ -9,18 +9,18 @@ export default function DashboardPage(){
 
     const [user,setUser] = useState({name:"",email:"",localId:""})
 
-    useEffect(()=>{
-        if(isAuthenticated()){
-            UserDetailsApi().then((response)=>{
+    // useEffect(()=>{
+    //     if(isAuthenticated()){
+    //         UserDetailsApi().then((response)=>{
                
-                setUser({
-                    name:response.data.users[0].displayName,
-                    email:response.data.users[0].email,
-                    localId:response.data.users[0].localId,
-                })
-            })
-        }
-    },[])
+    //             setUser({
+    //                 name:response.data.users[0].displayName,
+    //                 email:response.data.users[0].email,
+    //                 localId:response.data.users[0].localId,
+    //             })
+    //         })
+    //     }
+    // },[])
 
     const logoutUser = ()=>{
         logout();

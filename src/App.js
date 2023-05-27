@@ -9,7 +9,7 @@ import ForgetPassword from "./pages/ForgetPasswordPage";
 import Verification from "./pages/Verification";
 import Register from "./pages/Register";
 
-// import DashboardPage from "./pages1/Dashboard";
+import DashboardPage from "./pages1/Dashboard";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route path="/Verification" element={<Verification />} />
           <Route path="/Register" element={<Register />} />
 
-          {/* <Route path="/dashboard" element={<DashboardPage/>} /> */}
+          <Route path="/dashboard" element={<DashboardPage/>} />
           <Route path="/" element={<h1>Home</h1>} />
         </Routes>
 

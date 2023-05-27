@@ -1,18 +1,26 @@
 import axios from "axios"
 import { getUserData} from './Storage'
 
-axios.defaults.baseURL = "https://identitytoolkit.googleapis.com/v1";
-const API_KEY = "%YOUR_FIREBASE_API_KEY%"
-const REGISTER_URL = `/accounts:signUp?key=${API_KEY}`;
-const LOGIN_URL = `/accounts:signInWithPassword?key=${API_KEY}`;
-const USER_DETAILS_URL = `/accounts:lookup?key=${API_KEY}`;
+let url="http://localhost:8000/api/";
+
+axios.defaults.baseURL = url;
+// const API_KEY = "%YOUR_FIREBASE_API_KEY%"
+const REGISTER_URL = url+`user-signUp`;
+const LOGIN_URL =url+`user-login`;
+const USER_DETAILS_URL = url+`user-details`;
 
 export const RegisterApi = (inputs)=>{
-    let data  = {displayName:inputs.name,email:inputs.email,password:inputs.password }
+    let data  = {
+        name:inputs.name,
+        email:inputs.email,
+        password:inputs.password,
+        phone:inputs.phone,
+     }
     return axios.post(REGISTER_URL,data)
 }
 export const LoginApi = (inputs)=>{
-    let data  = {email:inputs.email,password:inputs.password }
+    let data  = {email:inputs.email,
+                password:inputs.password }
     return axios.post(LOGIN_URL,data)
 }
 export const UserDetailsApi = ()=>{
