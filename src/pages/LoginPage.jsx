@@ -1,14 +1,14 @@
-import {React,useState} from 'react'
+import { React,useState } from 'react'
 import { Link,Navigate } from 'react-router-dom';
 import email from '../assets/images/Email.svg';
 import logo from '../assets/images/mbl-Logo.png';
 import password from '../assets/images/password.svg';
 import eyeHide from '../assets/images/eye-hide.svg';
 import eyeOpen from '../assets/images/eye-open.svg';
-import validator from 'validator';
 import { LoginApi } from '../services/Api';
 import {storeUserData } from '../services/Storage';
 import { isAuthenticated } from '../services/Auth';
+// import { initialStateErrors } from '../services/initialStateErrors';
 
 const LoginPage = () => {
     const initialStateErrors = {
@@ -39,7 +39,7 @@ const LoginPage = () => {
         let errors =initialStateErrors; 
         let hasError = false; 
         console.log(inputs);
-        
+
         if (inputs.email == "") {
             errors.email.required =true;
             hasError=true;
@@ -49,22 +49,12 @@ const LoginPage = () => {
             hasError=true;
         }
 
-        //Password Validation
-        // if (!validator.isStrongPassword(inputs.password, {
-        //     minLength: 8, minLowercase: 1,
-        //     minUppercase: 1, minNumbers: 1, minSymbols: 1
-        //   })) {
-        //     errors.password.required='Password Must contain 8 characters At least one Uppercase, Lowercase, One digit, one Special Characters,'
-        //     setErrors(errors.password.required)
-        //     hasError=true;
-        //   }
-       
         if (!hasError) {
             setLoading(true)
             //sending login api request
             LoginApi(inputs).then((response)=>{
                 if (response.data.status === 200) {
-                        storeUserData(response.data.idToken);                   
+                        storeUserData(response.data.idToken);
                 }else{
                     setErrors({...errors,custom_error:response.data.message})
                 }
@@ -83,7 +73,7 @@ const LoginPage = () => {
         //redirect user to dashboard
         return <Navigate to="/dashboard" />
     }
-    
+        
     return (
         <>
             <div className="login-page-main">
@@ -126,14 +116,14 @@ const LoginPage = () => {
                                                 Password is required.
                                             </span>):null
                                             }
-                                    </div><br/>                                  
+                                    </div>                                  
                                     <div className="form-group">
-                                        {loading ?
-                                        (<div  className="text-center">
+                                     {loading ?
+                                        (<><br/><div  className="text-center">
                                             <div className="spinner-border text-primary " role="status">
                                                 <span className="sr-only">Loading...</span>
                                             </div>
-                                        </div>):null
+                                        </div></>):null
                                         }
                                         <span className="text-danger" >
                                         { errors.custom_error?
