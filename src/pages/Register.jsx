@@ -67,12 +67,12 @@ const Register = () => {
         let hasError = false; 
         console.log(inputs);
         
-        if (inputs.name == "") {
+        if (inputs.name === "") {
             errors.name.required =true;
             hasError=true;
         } 
 
-        if (inputs.phone == "") {
+        if (inputs.phone === "") {
             errors.phone.required ='Mobile Number is required.';
             hasError=true;
         }else{
@@ -80,18 +80,18 @@ const Register = () => {
         if (!pattern.test(inputs.phone)) {
             errors.phone.required = "Enter a valid Mobile Number";
             hasError=true;
-        } else if (inputs.phone.length != 10) {
+        } else if (inputs.phone.length !== 10) {
             errors.phone.required = "Mobile Number must be 10 digit.";
             hasError=true;
         }
         }
 
-        if (inputs.email == "") {
+        if (inputs.email === "") {
             errors.email.required =true;
             hasError=true;
         }
 
-        if (inputs.password.length ==0) {
+        if (inputs.password.length === 0) {
             errors.password.required ='Password is required.';
             hasError=true;
         }else if (!validator.isStrongPassword(inputs.password, {
@@ -102,12 +102,12 @@ const Register = () => {
             hasError=true;
           }
 
-        if (inputs.confirmpassword == "") {
+        if (inputs.confirmpassword === "") {
             errors.confirmpassword.required ='Confirm Password is required.';
             hasError=true;
         } 
         
-        if(inputs.confirmpassword.length >0 && inputs.password != inputs.confirmpassword){
+        if(inputs.confirmpassword.length >0 && inputs.password !== inputs.confirmpassword){
             errors.confirmpassword.required ='Password and Confirm Password Mismatched';
             hasError=true;
         } 

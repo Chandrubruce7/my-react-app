@@ -29,7 +29,7 @@ const ForgetPassword = () => {
             let errors =initialStateErrors; 
             let hasError = false; 
 
-            if (inputs.phone == "") {
+            if (inputs.phone === "") {
               errors.phone.required ='Mobile Number is required.';
               hasError=true;
             }else{
@@ -37,7 +37,7 @@ const ForgetPassword = () => {
             if (!pattern.test(inputs.phone)) {
                 errors.phone.required = "Enter a valid Mobile Number";
                 hasError=true;
-            } else if (inputs.phone.length != 10) {
+            } else if (inputs.phone.length !== 10) {
                 errors.phone.required = "Mobile Number must be 10 digit.";
                 hasError=true;
             }
@@ -61,7 +61,7 @@ const ForgetPassword = () => {
         setErrors({...errors});
  }
       if (isVerified()) {
-        //redirect user to dashboard
+        //redirect user to verification
         return <Navigate to="/verification" />
       }
   return (
@@ -75,7 +75,7 @@ const ForgetPassword = () => {
             <div className="form-title">
               <h1 className="font-32 wel-txt">Forgot Password</h1>
               <h6 className="font-20 wel-sub-txt">Enter your registered mobile number we will
-                send a OTP to your mobile number</h6>
+                send a OTP to your Email</h6>
             </div>
             <div className="form-input-section">
               <form onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ const ForgetPassword = () => {
                       <p>+91</p>
                     </div>
                   </div>
-                  { errors.phone.required !=''?
+                  { errors.phone.required !==''?
                       (<span className="text-danger" >
                         { errors.phone.required }
                       </span>):null

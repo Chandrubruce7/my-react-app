@@ -1,4 +1,6 @@
 import axios from "axios"
+import {getUserPhone } from '../services/Storage';
+
 let url="http://localhost:8000/api/";
 
 axios.defaults.baseURL = url;
@@ -30,10 +32,12 @@ export const ForgetPasswordApi = (inputs)=>{
 }
 
 export const ForgetPasswordVerifyApi = (inputs)=>{
-    let data = { phone:inputs.phone,
-                 otp:inputs.otp
+    const otps = inputs.one + inputs.two + inputs.three + inputs.four + inputs.five + inputs.six;
+
+    let data = { phone:getUserPhone(),
+                 otp:otps
                     }
-                    console.log(data);
+    console.log(data);
     return axios.post(FORGET_PASSWORD_VERIFY_URL,data)
 }
 

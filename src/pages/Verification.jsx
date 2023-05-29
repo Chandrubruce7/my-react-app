@@ -3,7 +3,7 @@ import { Link,Navigate } from 'react-router-dom';
 import logo from '../assets/images/mbl-Logo.png';
 import arrow from '../assets/images/arrow-left.svg';
 import { ForgetPasswordVerifyApi } from '../services/Api';
-import {storeUserData,getUserPhone,removeUserPhone } from '../services/Storage';
+import {storeUserData, removeUserPhone } from '../services/Storage';
 import { isAuthenticated } from '../services/Auth';
 
 const Verification = () => {
@@ -20,10 +20,6 @@ const Verification = () => {
         const [errors,setErrors] = useState(initialStateErrors);
                 
         const [loading,setLoading]  =  useState(false);
-        
-        const [otp,setOtp]  =  useState({
-
-        });
 
         const [inputs,setInputs] = useState({
             one:"",
@@ -34,13 +30,31 @@ const Verification = () => {
             six:""           
         })
         
-
         const handleInput = (event)=>{
-            setInputs({...inputs,[event.target.name]:event.target.value}) 
-           
-
+            if (event.key === 'Backspace') {
+                if(event.target.value){
+                    let nextElementIds = event.target.name;              
+                    document.getElementById(nextElementIds).focus();
+                    var vat='';
+                    setInputs({...inputs,[event.target.name]:vat}) 
+                }else{
+                    let nextElementIds = event.target.id-1;
+                    document.getElementById(nextElementIds).focus();
+                }
+                
+              }else{
+                var val = event.target.value;
+                if(val.length === 1 ){
+                    setInputs({...inputs,[event.target.name]:event.target.value}) 
+                }else if(val.length>1) {
+                    var vas = String(event.target.value).match(/\d/);
+                    event.target.value=vas;
+                    setInputs({...inputs,[event.target.name]:vas}) 
+                }
+                let nextElementId = event.target.attributes["data-focus"].value;
+                document.getElementById(nextElementId).focus();
+             }
         }
-        
 
         const handleSubmit = (event)=>{
             event.preventDefault();
@@ -54,8 +68,6 @@ const Verification = () => {
 
         if (!hasError) {
         setLoading(true)
-        const otps = inputs.one + inputs.two + inputs.three + inputs.four + inputs.five + inputs.six;
-        setInputs({...inputs, phone:getUserPhone(), otp:otps})
             ForgetPasswordVerifyApi(inputs).then((response)=>{
                 if (response.data.status === 200) {
                         removeUserPhone();
@@ -89,17 +101,17 @@ const Verification = () => {
                   <div className="form-title">
                        <h1 className="font-32 wel-txt">Please Verify Account</h1>
                        <h6 className="font-20 wel-sub-txt">Enter the 6 digit code that we sent to your registered
-                        mobile number to verify your account</h6>
+                        Email to verify your account</h6>
                   </div>
                   <div className="form-input-section ver-otp-inpt">
                       <form onSubmit={handleSubmit}>
                           <div className="ver-otp">
-                              <input type="number" name="one"   onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
-                              <input type="number" name="two"   onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
-                              <input type="number" name="three" onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
-                              <input type="number" name="four"  onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
-                              <input type="number" name="five"  onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
-                              <input type="number" name="six"   onKeyUp={handleInput} id="" className="font-24" maxLength="1" minLength="1"/>
+                              <input type="number" name="one" data-focus={"2"} keyboardtype={'numeric'} onKeyUp={handleInput} id="1" className="font-24 "  maxLength="1" minLength="1"/>
+                              <input type="number" name="two"  data-focus={"3"} keyboardtype={'numeric'}  onKeyUp={handleInput} id="2" className="font-24 " maxLength="1" minLength="1"/>
+                              <input type="number" name="three"data-focus={"4"} keyboardtype={'numeric'} onKeyUp={handleInput} id="3" className="font-24 " maxLength="1" minLength="1"/>
+                              <input type="number" name="four" data-focus={"5"} keyboardtype={'numeric'} onKeyUp={handleInput} id="4" className="font-24 " maxLength="1" minLength="1"/>
+                              <input type="number" name="five" data-focus={"6"} keyboardtype={'numeric'}  onKeyUp={handleInput} id="5" className="font-24 " maxLength="1" minLength="1"/>
+                              <input type="number" name="six"  data-focus={"1"} keyboardtype={'numeric'}  onKeyUp={handleInput} id="6" className="font-24 " maxLength="1" minLength="1"/>
                           </div>
                           <div className="form-group" style={{textAlign:'center'}}>
                             {loading ?
