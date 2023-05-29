@@ -6,11 +6,13 @@ import password from '../assets/images/password.svg';
 import eyeHide from '../assets/images/eye-hide.svg';
 import eyeOpen from '../assets/images/eye-open.svg';
 import { LoginApi } from '../services/Api';
-import {storeUserData } from '../services/Storage';
+import {storeUserData,removeUserPhone } from '../services/Storage';
 import { isAuthenticated } from '../services/Auth';
 // import { initialStateErrors } from '../services/initialStateErrors';
 
 const LoginPage = () => {
+
+    removeUserPhone();
     const initialStateErrors = {
         email:{required:false},
         password:{required:false},
@@ -54,7 +56,7 @@ const LoginPage = () => {
             //sending login api request
             LoginApi(inputs).then((response)=>{
                 if (response.data.status === 200) {
-                        storeUserData(response.data.idToken);
+                        storeUserData(response.data.data.idToken);
                 }else{
                     setErrors({...errors,custom_error:response.data.message})
                 }

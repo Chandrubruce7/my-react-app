@@ -78,11 +78,11 @@ const Register = () => {
         }else{
         var pattern = new RegExp(/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i);
         if (!pattern.test(inputs.phone)) {
-            hasError=true;
             errors.phone.required = "Enter a valid Mobile Number";
-        } else if (inputs.phone.length != 10) {
             hasError=true;
+        } else if (inputs.phone.length != 10) {
             errors.phone.required = "Mobile Number must be 10 digit.";
+            hasError=true;
         }
         }
 
@@ -117,7 +117,7 @@ const Register = () => {
             //sending login api request
             RegisterApi(inputs).then((response)=>{
                 if (response.data.status === 200) {
-                        storeUserData(response.data.idToken);                   
+                        storeUserData(response.data.data.idToken);                   
                 }else{
                     setErrors({...errors,custom_error:response.data.message})
                 }
