@@ -60,13 +60,14 @@ const Verification = () => {
             event.preventDefault();
             let errors   = initialStateErrors; 
             let hasError = false; 
-
+           
          if(!inputs.one || !inputs.two || !inputs.three || !inputs.four || !inputs.five || !inputs.six ) {
             errors.custom_error='Enter a Valid OTP';
             hasError = true; 
         }
 
         if (!hasError) {
+        setErrors({...errors,custom_error:null})
         setLoading(true)
             ForgetPasswordVerifyApi(inputs).then((response)=>{
                 if (response.data.status === 200) {
@@ -85,8 +86,8 @@ const Verification = () => {
         setErrors({...errors});
         }
     if (isAuthenticated()) {
-        //redirect user to dashboard
-        return <Navigate to="/dashboard" />
+        //redirect user to homepage
+        return <Navigate to="/homepage" />
       }
 
   return (

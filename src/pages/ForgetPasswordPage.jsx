@@ -62,7 +62,7 @@ const ForgetPassword = () => {
  }
       if (isVerified()) {
         //redirect user to verification
-        return <Navigate to="/verification" />
+        return <Navigate to="/Verification" />
       }
   return (
     <>

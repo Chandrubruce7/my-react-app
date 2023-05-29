@@ -4,12 +4,15 @@ import './assets/css/variable.css';
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/fontawesome.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 import LoginPage from "./pages/LoginPage";
 import ForgetPassword from "./pages/ForgetPasswordPage";
 import Verification from "./pages/Verification";
 import Register from "./pages/Register";
 
-import DashboardPage from "./pages1/Dashboard";
+import Homepage from "./pages/Homepage";
+import ProfilePage from "./pages/ProfilePage";
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -20,10 +23,11 @@ function App() {
           {/* <Route path="/register" element={<RegisterPage/>} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forget" element={<ForgetPassword />} />
-          <Route path="/Verification" element={<Verification />} />
+          <Route path="/verification" element={<Verification />} />
           <Route path="/Register" element={<Register />} />
 
-          <Route path="/dashboard" element={<DashboardPage/>} />
+          <Route path="/homepage" element={<Homepage/>} />
+          <Route path="/profilepage" element={<ProfilePage/>} />
           <Route path="/" element={<h1>Home</h1>} />
         </Routes>
 

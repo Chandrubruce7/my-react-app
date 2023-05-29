@@ -132,8 +132,8 @@ const Register = () => {
     }
 
     if (isAuthenticated()) {
-            //redirect user to dashboard
-            return <Navigate to="/dashboard" />
+            //redirect user to homepage
+            return <Navigate to="/homepage" />
         }
 
     return (
@@ -175,7 +175,7 @@ const Register = () => {
                                             <p>+91</p>
                                         </div>
                                     </div>
-                                    { errors.phone.required !=''?
+                                    { errors.phone.required !==''?
                                             (<span className="text-danger" >
                                                { errors.phone.required }
                                             </span>):null
@@ -204,7 +204,7 @@ const Register = () => {
                                             {passwordType === "password" ? <img id="pw-close" src={eyeHide} alt="" /> :
                                                 <img id="pw-open" src={eyeOpen} alt="" />}
                                         </span>
-                                        { errors.password.required !=''?
+                                        { errors.password.required !==''?
                                             (<span className="text-danger" >
                                                {errors.password.required}
                                             </span>):null
@@ -221,7 +221,7 @@ const Register = () => {
                                                 <img id="pw-open" src={eyeOpen} alt="" />}
                                         </span>
                                     </div>
-                                    { errors.confirmpassword.required !=''?
+                                    { errors.confirmpassword.required !==''?
                                             (<span className="text-danger" >
                                                 {errors.confirmpassword.required}
                                             </span>):null

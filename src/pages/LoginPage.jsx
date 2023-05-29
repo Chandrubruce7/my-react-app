@@ -72,8 +72,8 @@ const LoginPage = () => {
     }
 
     if (isAuthenticated()) {
-        //redirect user to dashboard
-        return <Navigate to="/dashboard" />
+        //redirect user to homepage
+        return <Navigate to="/homepage" />
     }
         
     return (
