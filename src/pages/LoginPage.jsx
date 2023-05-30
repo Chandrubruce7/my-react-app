@@ -1,10 +1,6 @@
 import { React,useState } from 'react'
 import { Link,Navigate } from 'react-router-dom';
-import email from '../assets/images/Email.svg';
-import logo from '../assets/images/mbl-Logo.png';
-import password from '../assets/images/password.svg';
-import eyeHide from '../assets/images/eye-hide.svg';
-import eyeOpen from '../assets/images/eye-open.svg';
+import { email,logo,password,eyeHide,eyeOpen } from '../components/images/images.jsx';
 import { LoginApi } from '../services/Api';
 import {storeUserData,removeUserPhone } from '../services/Storage';
 import { isAuthenticated } from '../services/Auth';

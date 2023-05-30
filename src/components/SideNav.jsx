@@ -1,17 +1,8 @@
 import React from 'react';
-import userhovtab from '../assets/images/user-hov-tab.svg';
-import usertab from '../assets/images/user-tab.svg';
-import hearthovsvg from '../assets/images/heart-hov-svg.svg';
-import heart from '../assets/images/heart.svg';
-import subtab from '../assets/images/sub-tab.svg';
-import subtabhov from '../assets/images/sub-tab-hov.svg';
-import helpcircletab from '../assets/images/help-circle-tab.svg';
-import helpcirclehovtab from '../assets/images/help-circle-hov-tab.svg';
-import termsandconditionstab from '../assets/images/terms-and-conditions-tab.svg';
-import termsandconditionstabhov from '../assets/images/terms-and-conditions-tab-hov.svg';
-import shieldtab from '../assets/images/shield-tab.svg';
-import shieldhovtab from '../assets/images/shield-hov-tab.svg';
 
+import { userhovtab,usertab,hearthovsvg,heart,subtab,subtabhov,
+    helpcircletab,helpcirclehovtab,termsandconditionstab,termsandconditionstabhov,shieldtab,shieldhovtab,logouttab
+   } from '../components/images/images.jsx';
 const SideNav = () => {
     
     return (
@@ -51,7 +42,7 @@ const SideNav = () => {
                             <img src={shieldtab} alt="" srcSet=""/> 
                             <img className="active-none" src={shieldhovtab} alt="" srcSet=""/>
                             <span>Privacy Policy</span><a className="mbl-block" href="./Editprivacy.html">Privacy Policy</a> </button>
-                        <button className="font-18 nav-tab-btn"type="button"><a href="./Login.html"><img src="./assets/images/logout-tab.svg" alt="" srcSet=""/>Logout</a></button>
+                        <button className="font-18 nav-tab-btn"type="button"><a href="./Login.html"><img src={logouttab} alt="" srcSet=""/>Logout</a></button>
                    </div>                  
                 </div>
        

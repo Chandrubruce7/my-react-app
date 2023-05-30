@@ -1,20 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
 import SideNav from '../components/SideNav';
-import avater from '../assets/images/avater.png';
-import user from '../assets/images/user.svg';
-import email from '../assets/images/Email.svg';
-import phone from '../assets/images/phone.svg';
-import birthdayicon from '../assets/images/birthday_icon.svg';
-import prefer from '../assets/images/prefer.svg';
-import password from '../assets/images/password.svg';
-import eyeHide from '../assets/images/eye-hide.svg';
-import eyeOpen from '../assets/images/eye-open.svg';
-import artistscardstar from '../assets/images/artists_card_star.svg';
-import artistsclose from '../assets/images/artists-close.svg';
-
+import { user,email,phone,password,eyeHide,eyeOpen,
+    avater,birthdayicon,prefer,artistscardstar,artistsclose,
+   } from '../components/images/images.jsx';
 
 const ProfilePage = () => {
+
     return (
         <>
         <Header/>

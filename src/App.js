@@ -1,9 +1,7 @@
 import './assets/css/style.css';
 import './assets/css/responsive.css';
 import './assets/css/variable.css';
-import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/fontawesome.min.css';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import LoginPage from "./pages/LoginPage";
 import ForgetPassword from "./pages/ForgetPasswordPage";
