@@ -28,7 +28,7 @@ const Header = () => {
                         <div className="notfication_icon" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><img
                                 src={notification} alt=""/></div>
                     </div>
-                    <Link to="/profilepage">
+                    <Link to="/profile">
                         <div className="header_profile">
                             <div className="header_profile_img"><img src={usericon} alt="profile"/>
                             </div>

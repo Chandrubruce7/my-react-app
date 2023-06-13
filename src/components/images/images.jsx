@@ -23,8 +23,15 @@ import termsandconditionstabhov from '../../assets/images/terms-and-conditions-t
 import shieldtab from '../../assets/images/shield-tab.svg';
 import shieldhovtab from '../../assets/images/shield-hov-tab.svg';
 import logouttab from '../../assets/images/logout-tab.svg';
+import artists_image1 from '../../assets/images/artists_image1.png';
+import artists_card_star from '../../assets/images/artists_card_star.svg';
+import artists_close from '../../assets/images/artists-close.svg';
+import diamond from '../../assets/images/diamond.png';
+
+
 export   {user,email,logo,phone,password,eyeHide,eyeOpen,
           avater,birthdayicon,prefer,artistscardstar,artistsclose,userhovtab,usertab,hearthovsvg,heart,subtab,subtabhov,
-          helpcircletab,helpcirclehovtab,termsandconditionstab,termsandconditionstabhov,shieldtab,shieldhovtab,logouttab
+          helpcircletab,helpcirclehovtab,termsandconditionstab,termsandconditionstabhov,shieldtab,shieldhovtab,logouttab,
+          artists_image1,artists_card_star,artists_close,diamond
          }
 ;

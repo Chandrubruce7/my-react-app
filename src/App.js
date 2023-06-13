@@ -10,6 +10,9 @@ import Register from "./pages/Register";
 
 import Homepage from "./pages/Homepage";
 import ProfilePage from "./pages/ProfilePage";
+import Profile from "./pages/Profile";
+import Favorites from "./pages/Favorites";
+import GoandFreenow from "./pages/GoandFreenow";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -23,6 +26,10 @@ function App() {
           <Route path="/forget" element={<ForgetPassword />} />
           <Route path="/verification" element={<Verification />} />
           <Route path="/Register" element={<Register />} />
+
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Favorites" element={<Favorites />} />
+          <Route path="/GoandFreenow" element={<GoandFreenow />} />
 
           <Route path="/homepage" element={<Homepage/>} />
           <Route path="/profilepage" element={<ProfilePage/>} />
