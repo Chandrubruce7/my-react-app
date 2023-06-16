@@ -1,10 +1,12 @@
-import { React, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom';
-
+import { React } from 'react'
+import { NavLink, useLocation, Navigate } from 'react-router-dom';
 import {
     userhovtab, usertab, hearthovsvg, heart, subtab, subtabhov,
     helpcircletab, helpcirclehovtab, termsandconditionstab, termsandconditionstabhov, shieldtab, shieldhovtab, logouttab
 } from '../components/images/images.jsx';
+// import { logout } from '../services/Auth';
+import { removeUserData,getUserData } from "../services/Storage";
+
 const SideNav = ({ children }) => {
 
     // const[isOpen ,setIsOpen] = useState(false);
@@ -43,7 +45,7 @@ const SideNav = ({ children }) => {
 
         },
         {
-            path: "/Terms&conditions",
+            path: "/TermsandConditions",
             name: "Terms and Conditions",
             img: termsandconditionstab,
             img1: termsandconditionstabhov
@@ -54,15 +56,16 @@ const SideNav = ({ children }) => {
             img: shieldtab,
             img1: shieldhovtab
         },
-        // {
-        //     path: "/logout",
-        //     name: "Logout",
-        //     img: subtab,
-        //     img1: subtabhov
-        // },
-
+    
     ]
 
+    const logoutclick = ()=>{
+        
+        // if(removeUserData()){
+        //     return <Navigate to="/login" />
+        // }
+        
+    }
     return (
 
         <div className="col-lg-3 col-md-12 col-sm-12 tab-navbar p-0">
@@ -73,7 +76,7 @@ const SideNav = ({ children }) => {
                 {
                     generalItem.map((item, index) => (
                         <NavLink key={index} to={item.path} className="link" >
-                            <button className={`font-18 nav-tab-btn ${(location.pathname === item.path) ? 'active' : ''}`} type="button">
+                            <button className={`font-18 nav-tab-btn ${(location.pathname === item.path ) ? 'active' : ''}`} type="button">
 
                                 <img src={item.img} alt="" srcSet="" />
                                 <img className="active-none" src={item.img1} alt="" srcSet="" />
@@ -96,7 +99,7 @@ const SideNav = ({ children }) => {
                         </NavLink>
                     ))
                 }
-                <button className="font-18 nav-tab-btn" type="button"><a href="./Login.html"><img src={logouttab} alt="" srcSet="" />Logout</a></button>
+                <button className="font-18 nav-tab-btn" type="button" onClickCapture={logoutclick}><img src={logouttab} alt="" srcSet="" />Logout</button>
             </div>
         </div>
 

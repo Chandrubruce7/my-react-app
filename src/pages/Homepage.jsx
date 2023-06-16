@@ -3,10 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     return (
       <>
       <Header/>
+      {props.children}
       <Footer/>
       </>
     );

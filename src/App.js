@@ -13,6 +13,10 @@ import ProfilePage from "./pages/ProfilePage";
 import Profile from "./pages/Profile";
 import Favorites from "./pages/Favorites";
 import GoandFreenow from "./pages/GoandFreenow";
+import About from "./pages/About";
+import TermsandConditions from "./pages/Termsandconditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Support from "./pages/Support";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -30,8 +34,14 @@ function App() {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/GoandFreenow" element={<GoandFreenow />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/TermsandConditions" element={<TermsandConditions />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+
+
 
           <Route path="/homepage" element={<Homepage/>} />
+          <Route path="/Support" element={<Support/>} />
           <Route path="/profilepage" element={<ProfilePage/>} />
           <Route path="/" element={<h1>Home</h1>} />
         </Routes>

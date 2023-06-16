@@ -2377,7 +2377,7 @@ popup mainsection css end
 .list_notification {
   padding: 20px;
 }
-.modal.right .modal-content {
+ .modal-content {
   background: linear-gradient(113.86deg, #1b3558 0.89%, #0f192c 100%);
 }
 
@@ -3783,7 +3783,7 @@ img.img-inactive {
   height: 100%;
 }
 
-.modal.right .modal-dialog {
+ .modal-dialog {
   position: fixed;
   margin: auto;
   width: 400px;
@@ -3795,17 +3795,17 @@ img.img-inactive {
   transform: translate3d(0%, 0, 0);
 }
 
-.modal.right .modal-content {
+ .modal-content {
   height: 100%;
   overflow-y: auto;
 }
 
-.modal.right .modal-body {
+ .modal-body {
   padding: 15px 15px 80px;
 }
 
 /*Right*/
-.modal.right.fade .modal-dialog {
+.fade .modal-dialog {
   right: -400px;
   -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
@@ -3813,7 +3813,7 @@ img.img-inactive {
   transition: opacity 0.3s linear, right 0.3s ease-out;
 }
 
-.modal.right.fade.show .modal-dialog {
+.fade.show .modal-dialog {
   right: 0;
 }
 
@@ -4042,4 +4042,7 @@ ul.nav_list li.active a {
 
 .Rating_star.active svg path{
     fill:#081A34;
+}
+.modal-content {
+  background: linear-gradient(113.86deg, #1b3558 0.89%, #0f192c 100%);
 }

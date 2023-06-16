@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SideNav from '../components/SideNav';
 
@@ -19,6 +20,7 @@ const ProfilePage = (props) => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
     );
 };
