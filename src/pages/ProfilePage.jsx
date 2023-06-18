@@ -1,13 +1,12 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import SideNav from '../components/SideNav';
+import HomePage from '../pages/Homepage';
+
 
 const ProfilePage = (props) => {
 
     return (
-        <>
-            <Header />
+            <HomePage>
             <section className="main_section">
                 <div className="custom_container">
                     <div className="row d-flex align-items-start res-flex-wrap">
@@ -20,8 +19,7 @@ const ProfilePage = (props) => {
                     </div>
                 </div>
             </section>
-            <Footer/>
-        </>
+        </HomePage>
     );
 };
 

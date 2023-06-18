@@ -1,7 +1,7 @@
 
 import React from 'react';
 import HomePage from '../pages/Homepage';
-import { user,email,logo,phone,password,eyeHide,eyeOpen } from '../components/images/images.jsx';
+import { user,email,phone } from '../components/images/images.jsx';
 
 const Support = () => {
     return (

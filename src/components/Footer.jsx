@@ -1,7 +1,9 @@
 import React from 'react';
-import verticalCard from '../assets/images/verticalCard-rocket-icon.svg';
-import headerLogo from '../assets/images/header_logo.png';
-import email from '../assets/images/Email.svg';
+import { NavLink } from 'react-router-dom';
+
+import {
+    verticalCard, headerLogo, email
+} from '../components/images/images.jsx';
 
 const Footer = () => {
     return (
@@ -26,11 +28,11 @@ const Footer = () => {
             </div>
             <div className="footer_logo"><img src={headerLogo} alt=""/></div>
             <ul className="footer_manu">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">My Events</a></li>
-                <li><a href="">Profile</a></li>
-                <li><a href="">Go Ad Free now</a></li>
+                <li><NavLink to="/homepage" >Home</NavLink></li>
+                <li><NavLink to="/About" >About</NavLink></li>
+                <li><NavLink to="/MyEvents" >My Events</NavLink></li>
+                <li><NavLink to="/Profile" >Profile</NavLink></li>
+                <li><NavLink to="/GoandFreenow" >Go and Free now</NavLink></li>
             </ul>
             <div className="footer_social_icon"><span><a href=""></a></span><span><a href=""></a></span><span><a
                         href=""></a></span><span><a href=""></a></span></div>

@@ -9,8 +9,6 @@ import { removeUserData,getUserData } from "../services/Storage";
 
 const SideNav = ({ children }) => {
 
-    // const[isOpen ,setIsOpen] = useState(false);
-    // const toggle = () => setIsOpen (!isOpen);
 
     const location = useLocation();
 
@@ -76,7 +74,7 @@ const SideNav = ({ children }) => {
                 {
                     generalItem.map((item, index) => (
                         <NavLink key={index} to={item.path} className="link" >
-                            <button className={`font-18 nav-tab-btn ${(location.pathname === item.path ) ? 'active' : ''}`} type="button">
+                            <button className={`font-18 nav-tab-btn ${(location.pathname === item.path) ? 'active' : ''}`} type="button">
 
                                 <img src={item.img} alt="" srcSet="" />
                                 <img className="active-none" src={item.img1} alt="" srcSet="" />
