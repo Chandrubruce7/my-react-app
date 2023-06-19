@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanToStage</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/variable.css" />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css"/>
+</head>
+
+<body>
+    
+   <div class="login-page-main">
+         <div class="login-section ">             
+             <div class="login-form-section otp-section">
+                  <a href="./Login.html" class="arrow-left"><img src="./assets/images/arrow-left.svg" alt="" srcset=""></a>
+                  <div class="mbl-logo-sec">
+                        <img src="./assets/images/mbl-Logo.png" alt="logo" class="src">
+                  </div>
+                  <div class="form-title">
+                       <h1 class="font-32 wel-txt">Please Verify Account</h1>
+                       <h6 class="font-20 wel-sub-txt">Enter the 6 digit code that we sent to your registered
+                        mobile number to verify your account</h6>
+                  </div>
+                  <div class="form-input-section ver-otp-inpt">
+                      <form action="">
+                          <div class="ver-otp">
+                              <input type="number" name="" id="" class="font-24" >
+                              <input type="number" name="" id="" class="font-24"  disabled >
+                              <input type="number" name="" id="" class="font-24"  disabled>
+                              <input type="number" name="" id="" class="font-24"  disabled>
+                              <input type="number" name="" id="" class="font-24"  disabled>
+                              <input type="number" name="" id="" class="font-24"  disabled>
+                          </div>
+
+                          <div class="login-btn ">
+                              <button type="submit" class="font-16"><a href="./Create-new-password.html">Verify and Continue</a></button>
+                          </div>
+                      </form>
+
+
+                      <div class="resend-sec">
+                          <p class="font-18">Resend Code<span class="font-18">01:48</span></p>
+                      </div>
+
+                  </div>                  
+             </div>
+         </div>
+   </div>
+
+  
+
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/custom.js"></script>
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+
+<script>
+    // OTP 
+
+
+  const inputs = document.querySelectorAll(".ver-otp input"),
+  button = document.querySelector("button");
+
+
+inputs.forEach((input, index1) => {
+  input.addEventListener("keyup", (e) => {
+    
+    const currentInput = input,
+      nextInput = input.nextElementSibling,
+      prevInput = input.previousElementSibling;
+
+    if (currentInput.value.length > 1) {
+      currentInput.value = "";
+      return;
+    }
+
+    if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+      nextInput.removeAttribute("disabled");
+      nextInput.focus();
+    }
+
+ 
+    if (e.key === "Backspace") {
+
+      inputs.forEach((input, index2) => {
+       
+        if (index1 <= index2 && prevInput) {
+          input.setAttribute("disabled", true);
+          input.value = "";
+          prevInput.focus();
+        }
+      });
+    }
+
+    if (!inputs[3].disabled && inputs[3].value !== "") {
+      button.classList.add("active");
+      return;
+    }
+    button.classList.remove("active");
+  });
+});
+
+
+window.addEventListener("load", () => inputs[0].focus());
+
+</script>
+</body>
+</html>
