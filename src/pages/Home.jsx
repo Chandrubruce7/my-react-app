@@ -26,7 +26,7 @@ const Home = () => {
             </div>
 
             <div className="event_tabe_section">
-              <a href="./Event-Detail.html">
+              <a href="/EventDetail">
                 <div className="bg_layout event_card">
                   <img src={homePagecard2} alt="card" />
                   <div className="today_btn"> <button>live</button></div>
