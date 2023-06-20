@@ -63,7 +63,7 @@ function App() {
           <Route path="/MyEvents" element={<MyEvents/>} />
           <Route path="/Support" element={<Support/>} />
           <Route path="/profilepage" element={<ProfilePage/>} />
-          <Route path="/" element={<Homepage/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/ArtistSlider" element={<ArtistSlider/>} />
 
           
