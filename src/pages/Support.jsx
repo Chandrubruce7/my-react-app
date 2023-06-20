@@ -175,15 +175,15 @@ const Support = () => {
                             <label htmlFor="date">Date & Time</label>
                         </div>
                         <div id="datepicker" className="input-group date seach_field" data-date-format="mm-dd-yyyy">
-                            <input className="form-control input-group-addon" id="inner-date" type="text" placeholder="From Date"/>
+                            <input className="form-control input-group-addon" id="inner-date1" type="text" placeholder="From Date"/>
                             <label htmlFor="inner-date"><img src="./assets/images/calendar.svg" alt=""/></label>
                         </div>
                         <div id="datepicker1" className="input-group date seach_field" data-date-format="mm-dd-yyyy">
-                            <input className="form-control input-group-addon" id="inner-date" type="text" placeholder="To Date"/>
+                            <input className="form-control input-group-addon" id="inner-date2" type="text" placeholder="To Date"/>
                             <label htmlFor="inner-date"><img src="./assets/images/calendar.svg" alt=""/></label>
                         </div>
                         <div id="datepicker3" className="input-group date seach_field" data-date-format="mm-dd-yyyy">
-                            <input className="form-control input-group-addon" id="inner-date" type="text" placeholder="Select Time"/>
+                            <input className="form-control input-group-addon" id="inner-date3" type="text" placeholder="Select Time"/>
                             <label htmlFor="inner-date"><img src="./assets/images/clock.svg" alt=""/></label>
                         </div>
                         <div className="checkBox_sction ">
